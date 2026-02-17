@@ -18,8 +18,3 @@ The project integrates **SearXNG** for backend web search to reduce reliance on 
 ---
 
 ## Installation
-```bash
-git clone https://github.com/aialt/factsearch
-cd factsearch
-pip install -r requirements.txt
-
