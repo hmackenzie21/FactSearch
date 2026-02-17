@@ -81,8 +81,8 @@ search:
 
 server:
   # Is overwritten by ${SEARXNG_PORT} and ${SEARXNG_BIND_ADDRESS}
-  port: 8888
-  bind_address: "127.0.0.1"
+  port: 8080
+  bind_address: "0.0.0.0"
   # public URL of the instance, to ensure correct inbound links. Is overwritten
   # by ${SEARXNG_BASE_URL}.
   base_url: false  # "http://example.com/location"
@@ -173,7 +173,7 @@ ui:
 #
 outgoing:
   # default timeout in seconds, can be override by engine
-  request_timeout: 3.0
+  request_timeout: 4.0
   # the maximum timeout in seconds
   # max_request_timeout: 10.0
   # suffix of searx_useragent, could contain information like an email address
@@ -818,6 +818,7 @@ engines:
   - name: duckduckgo
     engine: duckduckgo
     shortcut: ddg
+    disabled: false
 
   - name: duckduckgo images
     engine: duckduckgo_extra
@@ -1962,6 +1963,7 @@ engines:
     shortcut: sp
     startpage_categ: web
     categories: [general, web]
+    disabled: false
     additional_tests:
       rosebud: *test_rosebud
 

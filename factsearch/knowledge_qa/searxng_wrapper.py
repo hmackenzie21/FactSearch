@@ -10,6 +10,7 @@ class SearXNGAPIWrapper:
         self.k = snippet_cnt
         self.gl = "us" 
         self.hl = "en"
+        print("SearXNG called")
         
         # Get SearXNG URL 
         self.searxng_url = searxng_url or os.environ.get("SEARXNG_URL", "http://localhost:8888")
@@ -73,6 +74,7 @@ class SearXNGAPIWrapper:
         for result in searxng_results[:self.k]:
             content = result.get('content', result.get('title', ''))
             source = result.get('url', 'None')
+            print(source)
             
             if content:
                 element = {

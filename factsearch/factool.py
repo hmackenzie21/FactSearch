@@ -3,10 +3,7 @@ import copy
 import pdb
 
 from .knowledge_qa.pipeline import knowledge_qa_pipeline
-from factsearch.code.pipeline import code_pipeline
-from factsearch.math.pipeline import math_pipeline
 from factsearch.scientific.pipeline import scientific_pipeline
-from factsearch.med_doc_qa.pipeline import med_doc_qa_pipeline
 
 class Factool():
     def __init__(self, foundation_model):
@@ -15,16 +12,7 @@ class Factool():
                             "kbqa_online": knowledge_qa_pipeline(
                                 foundation_model, 10, "online"
                             ),
-                            #"code": code_pipeline(
-                            #    foundation_model, 3, 3
-                            #),
-                            #"math": math_pipeline(
-                            #    foundation_model
-                            #),
                             #"scientific": scientific_pipeline(
-                            #    foundation_model
-                            #),
-                            #"med_doc_qa": med_doc_qa_pipeline(
                             #    foundation_model
                             #)
                         }
