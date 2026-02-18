@@ -93,17 +93,20 @@ class SearXNGAPIWrapper:
         return snippets
     
     async def parallel_searches(self, search_queries, gl, hl):
-        """
-        Perform multiple searches in parallel
-        Matches the interface from GoogleSerperAPIWrapper
-        """
         async with aiohttp.ClientSession() as session:
-            tasks = [
-                self._searxng_search_results(session, query, gl, hl) 
-                for query in search_queries
-            ]
-            search_results = await asyncio.gather(*tasks, return_exceptions=True)
-            return search_results
+            results = []
+            batch_size = 3  # fire 3 at a time
+            for i in range(0, len(search_queries), batch_size):
+                batch = search_queries[i:i + batch_size]
+                tasks = [
+                    self._searxng_search_results(session, query, gl, hl)
+                    for query in batch
+                ]
+                batch_results = await asyncio.gather(*tasks, return_exceptions=True)
+                results.extend(batch_results)
+                if i + batch_size < len(search_queries):
+                    await asyncio.sleep(2.0)  # pause between batches
+        return results
     
     async def run(self, queries):
         """
