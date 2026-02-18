@@ -71,7 +71,7 @@ Additional NLP model integration (OLlama probably)
 
 ## Acknowledgements
 
-This system implements a novel fact-checking pipeline with self-hosted search and local LLM support. Parts of the claim extraction and verification logic are adapted from [FacTool](https://github.com/GAIR-NLP/factool) (Chern et al., 2023), specifically the YAML prompt templates and OpenAI wrapper utilities (which have undergone modification to support current GPT models). All search infrastructure, evidence retrieval, UI components, and local model integration are original contributions.
+Parts of the claim extraction and verification logic are adapted from [FacTool](https://github.com/GAIR-NLP/factool) (Chern et al., 2023), specifically the YAML prompt templates and OpenAI wrapper utilities (which have undergone modification to support current GPT models). All search infrastructure, evidence retrieval, UI components, and local model integration are original contributions.
 
 This project was developed at the University of Liverpool, and I would like to thank Dr. Meng Fang for his invaluable support and contributions to the project. You can find more of his work here: https://mengfn.github.io
 
