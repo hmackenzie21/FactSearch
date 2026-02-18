@@ -17,7 +17,7 @@ Users can also export their results in .txt or JSON format.
 
 ## AI Safety Disclaimer
 
-FactSearch is a research project aimed at improving AI transparency and safety for decision-making scenarios. Ultimately, even when fact-checking tools such as FactSearch are used, it is still important that a human checks and verifies all LLM-generated information before influencing any important decisions.
+FactSearch is a research project aimed at improving AI transparency and safety for decision-making scenarios, though it is important to acknowledge that it can make incorrect assumptions and fail to flag unfactual material. Please do your due diligence in thoroughly checking LLM outputs, especially when this information is influencing important decisions. FactSearch is intended only as a support tool and ultimately is not as a substitute for human intuition and expertise. 
 
 ## How to use FactSearch
 
