@@ -11,6 +11,8 @@ FactSearch is an AI pipeline for verifying the factuality of LLM outputs. The pi
 3. **Evidence Retrieval**: Evidence is retrieved using a locally-hosted instance of **SearXNG**, an open-source meta-search engine.
 4. **Claim Verification**: For each claim, reteieved evidence snippets are provided to a language model for evidence-conditioned reasoning. 
 
+![FactSearch Input Panel](https://github.com/hmackenzie21/FactSearch/blob/working/images/factsearch_pipeline.png)
+
 The pipeline outputs binary claim verification labels (True/False), alongside explanatory reasoning for each decision. Additionally, users can access source links retrieved via SearXNG - some examples of commonly occuring sources are: Wikipedia, online newspaper articles, independent media publications, government/public-sector webpages (e.g. NHS pages for healthcare-related information), scholarly articles, and technical documentation. The nature of the sources used will vary depending on the information which the user inputs to the pipeline. 
 
 Users can also export their results in .txt or JSON format.
