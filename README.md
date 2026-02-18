@@ -11,7 +11,7 @@ FactSearch is an AI pipeline for verifying the factuality of LLM outputs. The pi
 3. **Evidence Retrieval**: Evidence is retrieved using a locally-hosted instance of **SearXNG**, an open-source meta-search engine.
 4. **Claim Verification**: For each claim, reteieved evidence snippets are provided to a language model for evidence-conditioned reasoning. 
 
-![FactSearch Pipeline](https://github.com/hmackenzie21/FactSearch/blob/working/images/factsearch_pipeline.png)
+![FactSearch Pipeline](images/factsearch_pipeline.png)
 
 The pipeline outputs the following information:
 
@@ -51,7 +51,7 @@ Once FactSearch is initialised, users will be prompted for two inputs:
 * Prompt/Question: Enter here the prompt that you passed to the LLM.
 * Response to Check: Enter here the the LLM's response to your prompt. 
 
-![FactSearch Input Panel](https://github.com/hmackenzie21/FactSearch/blob/working/images/input_panel.png)
+![FactSearch Input Panel](images/input_panel.png)
 
 Once these fields have been filled, you will be able to use the button within the panel to run the fact checking pipeline and your results will be available within a few moments. 
 
@@ -72,8 +72,7 @@ This system implements a novel fact-checking pipeline with self-hosted search an
 
 This project was developed at the University of Liverpool, and I would like to thank Dr. Meng Fang for his invaluable support and contributions to the project. You can find more of his work here: https://mengfn.github.io
 
-![Liver Bird](https://github.com/hmackenzie21/FactSearch/blob/working/images/liver_bird.jpg)
-*Liver Bird - symbol of the City of Liverpool*
+![Liver Bird](images/liver_bird.jpg)
 
 
 **Reference:**
