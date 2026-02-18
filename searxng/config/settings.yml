@@ -1724,7 +1724,7 @@ engines:
     engine: qwant
     shortcut: qw
     categories: [general, web]
-    disabled: true
+    disabled: false
     additional_tests:
       rosebud: *test_rosebud
 
@@ -2363,7 +2363,7 @@ engines:
     shortcut: mjk
     engine: mojeek
     categories: [general, web]
-    disabled: true
+    disabled: false
 
   - name: mojeek images
     shortcut: mjkimg
@@ -2611,6 +2611,7 @@ engines:
     paging: true
     categories: [general, web]
     brave_category: search
+    disabled: false
     # brave_spellcheck: true
 
   - name: brave.images

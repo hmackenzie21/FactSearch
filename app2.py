@@ -6,7 +6,7 @@ from factsearch import Factool
 
 # page configuration
 st.set_page_config(
-    page_title="FactSearch Demo - KBQA Fact Checking",
+    page_title="FactSearch Demo - LLM Output Factuality Checking",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -30,7 +30,6 @@ if 'factool_instance' not in st.session_state:
 if 'results_history' not in st.session_state:
     st.session_state.results_history = []
 
-# factsearch initialisation
 def initialize_factool(model_name):
     """Initialise FactSearch instance with selected model"""
     try:
@@ -226,7 +225,7 @@ if api_key:
     import os
     os.environ['OPENAI_API_KEY'] = api_key
 
-model_options = ["gpt-3.5-turbo", "gpt-4"]
+model_options = ["gpt-4", "gpt-5", "gpt-5-mini", "gpt-5.2", "gpt-7"]
 selected_model = st.sidebar.selectbox("Select Foundation Model:", model_options, index=0)
 
 if st.sidebar.button("Initialize FactSearch", type="primary", disabled=not api_key):

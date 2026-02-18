@@ -12,11 +12,11 @@ class SearXNGAPIWrapper:
         self.hl = "en"
         print("SearXNG called")
         
-        # Get SearXNG URL 
+        # get SearXNG url 
         self.searxng_url = searxng_url or os.environ.get("SEARXNG_URL", "http://localhost:8888")
         self.searxng_url = self.searxng_url.rstrip('/')
         
-        # Test connection to SearXNG
+        # check connection to SearXNG
         self._test_connection()
     
     def _test_connection(self):
@@ -41,6 +41,7 @@ class SearXNGAPIWrapper:
             'lang': hl,
             'categories': 'general',
             'safesearch': 0,
+            'engines': 'brave, qwant,mojeek'
         }
         
         try:
@@ -93,9 +94,12 @@ class SearXNGAPIWrapper:
         return snippets
     
     async def parallel_searches(self, search_queries, gl, hl):
+        """ Executes searches to SearXNG in parallel batches with a pause in between to avoid blocking"""
         async with aiohttp.ClientSession() as session:
             results = []
-            batch_size = 3  # fire 3 at a time
+            pause = 2.0 #between batches of queries - added to avoid rate limiting
+            batch_size = 3  
+
             for i in range(0, len(search_queries), batch_size):
                 batch = search_queries[i:i + batch_size]
                 tasks = [
@@ -105,8 +109,8 @@ class SearXNGAPIWrapper:
                 batch_results = await asyncio.gather(*tasks, return_exceptions=True)
                 results.extend(batch_results)
                 if i + batch_size < len(search_queries):
-                    await asyncio.sleep(2.0)  # pause between batches
-        return results
+                    await asyncio.sleep(pause)  
+            return results
     
     async def run(self, queries):
         """

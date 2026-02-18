@@ -8,8 +8,6 @@ class TaskType(str, Enum):
     """Task types available in this tool."""
 
     kbqa = "kbqa"
-    math = "math"
-    code = "code"
     sci = "sci"
 
     @staticmethod
