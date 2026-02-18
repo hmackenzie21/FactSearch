@@ -34,15 +34,17 @@ Users can interact with FactSearch either via the command line, or through the w
 
 ### FactSearch GUI
 
-Upon loading the FactSearch app in a browser, users will be prompted to select an AI model which will be used for reasoning tasks within the verification pipeline. The OpenAI models that FactSearch currently supports are:
+Upon load, users will be prompted to select an AI model which will be used for reasoning tasks within the verification pipeline. There is a choice of OpenAI models (which require an API key) or the open-source Ollama model. 
+
+The OpenAI models that FactSearch currently supports are:
 
 1. GPT-5 
 2. GPT-5-mini
 3. GPT-5.2 
 
-To use any of these models, the user will also be required to input an OpenAI API key with sufficient tokens loaded to support FactSearch. For optimal performance, we recommend using GPT-5.2, OpenAI's flagship model as of February 2026. 
+To run FactSearch with a GPT model, you will require an OpenAI API key, which you can get [here](https://developers.openai.com/api/docs/quickstart/).
 
-For more info on OpenAI models: https://developers.openai.com/api/docs/models
+You can find more info on OpenAI's models [here](https://developers.openai.com/api/docs/models).
 
 Alternatively, users can choose to use the open-source model Ollama, in which case they will not require an API key and FactSearch will be completely free to use. 
 
@@ -53,8 +55,9 @@ Once FactSearch is initialised, users will be prompted for two inputs:
 
 ![FactSearch Input Panel](images/input_panel.png)
 
-Once these fields have been filled, you will be able to use the button within the panel to run the fact checking pipeline and your results will be available within a few moments. 
+Once these fields have been filled, you will be able to use the button within the panel to run the fact checking pipeline and your results will be ready to review within a few moments. 
 
+*** Image here showing example outputs ***
 
 ## Technical
 
@@ -64,7 +67,7 @@ OpenAI model selection + thoughts on relative model performance (mention tempera
 Additional NLP model integration (OLlama probably)
 
 
-## Credits and references
+## Credits
 
 ## Acknowledgements
 
