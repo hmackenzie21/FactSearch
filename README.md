@@ -6,10 +6,10 @@
 
 FactSearch is an AI pipeline for verifying the factuality of LLM outputs. The pipeline consists of a four-step verification process:
 
-1. Claim Extraction: Given an LLM-generated response, the system extracts atomic factual claims. 
-2. Query Generation: For each extracted claim, the system generates search queries intended to retrieve relevant supporting or refuting evidence.
-3. Evidence Retrieval: Evidence is retrieved using a locally-hosted instance of **SearXNG**, an open-source meta-search engine.
-4. Claim Verification: For each claim, reteieved evidence snippets are provided to a language model for evidence-conditioned reasoning. 
+1. **Claim Extraction**: Given an LLM-generated response, the system extracts atomic factual claims. 
+2. **Query Generation**: For each extracted claim, the system generates search queries intended to retrieve relevant supporting or refuting evidence.
+3. **Evidence Retrieval**: Evidence is retrieved using a locally-hosted instance of **SearXNG**, an open-source meta-search engine.
+4. **Claim Verification**: For each claim, reteieved evidence snippets are provided to a language model for evidence-conditioned reasoning. 
 
 The pipeline outputs binary claim verification labels (True/False), alongside explanatory reasoning for each decision. Additionally, users can access source links retrieved via SearXNG - some examples of commonly occuring sources are: Wikipedia, online newspaper articles, independent media publications, government/public-sector webpages (e.g. NHS pages for healthcare-related information), scholarly articles, and technical documentation. The nature of the sources used will vary depending on the information which the user inputs to the pipeline. 
 
@@ -17,7 +17,7 @@ Users can also export their results in .txt or JSON format.
 
 ## AI Safety Disclaimer
 
-FactSearch is a research project aimed at improving AI transparency and safety for decision-making scenarios, though it is important to acknowledge that it can make incorrect assumptions and fail to flag unfactual material. Please do your due diligence in thoroughly checking LLM outputs, especially when this information is influencing important decisions. FactSearch is intended only as a support tool and ultimately is not as a substitute for human intuition and expertise. 
+FactSearch is a research project aimed at improving AI transparency and safety for decision-making scenarios, though it is important to acknowledge that it can make incorrect assumptions and fail to flag unfactual material. **Please do your due diligence in thoroughly checking LLM outputs, especially when this information is influencing important decisions.** FactSearch is intended only as a support tool and ultimately is not as a substitute for human intuition and expertise. 
 
 ## How to use FactSearch
 
