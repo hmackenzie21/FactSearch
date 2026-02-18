@@ -11,11 +11,16 @@ FactSearch is an AI pipeline for verifying the factuality of LLM outputs. The pi
 3. **Evidence Retrieval**: Evidence is retrieved using a locally-hosted instance of **SearXNG**, an open-source meta-search engine.
 4. **Claim Verification**: For each claim, reteieved evidence snippets are provided to a language model for evidence-conditioned reasoning. 
 
-![FactSearch Input Panel](https://github.com/hmackenzie21/FactSearch/blob/working/images/factsearch_pipeline.png)
+![FactSearch Pipeline](https://github.com/hmackenzie21/FactSearch/blob/working/images/factsearch_pipeline.png)
 
-The pipeline outputs binary claim verification labels (True/False), alongside explanatory reasoning for each decision. Additionally, users can access source links retrieved via SearXNG - some examples of commonly occuring sources are: Wikipedia, online newspaper articles, independent media publications, government/public-sector webpages (e.g. NHS pages for healthcare-related information), scholarly articles, and technical documentation. The nature of the sources used will vary depending on the information which the user inputs to the pipeline. 
+The pipeline outputs the following information:
 
-Users can also export their results in .txt or JSON format.
+* Binary Claim Verification Labels (True/False)
+* Per-Claim Explanatory Reasoning for each decision 
+* Source Links retrieved via SearXNG - some examples of commonly occuring sources are: Wikipedia, online newspaper articles, independent media publications, government/public-sector webpages (e.g. NHS pages for healthcare-related information), scholarly articles, and technical documentation. The nature of the sources used will vary depending on the information which the user inputs to the pipeline. 
+* TXT/JSON exports of all the above (optional)
+
+FactSearch was developed at the University of Liverpool by Harry Mackenzie and Dr. Meng Fang. For more information, see our paper: ...
 
 ## AI Safety Disclaimer
 
@@ -50,14 +55,26 @@ Once FactSearch is initialised, users will be prompted for two inputs:
 
 Once these fields have been filled, you will be able to use the button within the panel to run the fact checking pipeline and your results will be available within a few moments. 
 
-### Interpreting Results and Reviewing Sources
 
-FactSearch enables users to view factuality on a claim-by-claim basis, in addition to 
+## Technical
 
-## SearXNG Configuration and Language Model Selection
+### SearXNG Configuration and Language Model Selection
 Search engine configuration and effects of search engine blocks on the system, built in mitigation measures (XNG wrapper pausing) - maybe add this into the app?? 
 OpenAI model selection + thoughts on relative model performance (mention temperature needing to be set to 1)
 Additional NLP model integration (OLlama probably)
 
 
 ## Credits and references
+
+## Acknowledgements
+
+This system implements a novel fact-checking pipeline with self-hosted search and local LLM support. Parts of the claim extraction and verification logic are adapted from [FacTool](https://github.com/GAIR-NLP/factool) (Chern et al., 2023), specifically the YAML prompt templates and OpenAI wrapper utilities (which have undergone modification to support current GPT models). All search infrastructure, evidence retrieval, UI components, and local model integration are original contributions.
+
+This project was developed at the University of Liverpool, and I would like to thank Dr. Meng Fang for his invaluable support and contributions to the project. You can find more of his work here: https://mengfn.github.io
+
+![Liver Bird](https://github.com/hmackenzie21/FactSearch/blob/working/images/liver_bird.jpg)
+*Liver Bird - symbol of the City of Liverpool*
+
+
+**Reference:**
+> Chern, I., Chern, S., Chen, J., Yuan, W., Feng, K., Qin, C., ... & Liu, P. (2023). FacTool: Factuality Detection in Generative AI - A Tool Augmented Framework for Multi-Task and Multi-Domain Scenarios. *arXiv preprint arXiv:2307.13528*.
