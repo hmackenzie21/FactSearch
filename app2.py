@@ -225,7 +225,7 @@ if api_key:
     import os
     os.environ['OPENAI_API_KEY'] = api_key
 
-model_options = ["gpt-4", "gpt-5", "gpt-5-mini", "gpt-5.2", "gpt-7"]
+model_options = ["gpt-5", "gpt-5-mini", "gpt-5.2"]
 selected_model = st.sidebar.selectbox("Select Foundation Model:", model_options, index=0)
 
 if st.sidebar.button("Initialize FactSearch", type="primary", disabled=not api_key):
