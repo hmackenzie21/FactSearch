@@ -28,6 +28,13 @@ To use any of these models, the user will also be required to input an OpenAI AP
 
 For more info on OpenAI models: https://developers.openai.com/api/docs/models
 
-Alternatively, users can choose to use the open-source model Ollama, in which case they will not require an API key, and FactSearch is completely free to use. 
+Alternatively, users can choose to use the open-source model Ollama, in which case they will not require an API key and FactSearch will be completely free to use. 
 
+Once FactSearch is initialised, users will be prompted for two inputs:
 
+* Prompt/Question: Enter here the prompt that you passed to the LLM.
+* Response to Check: Enter here the the LLM's response to your prompt. 
+
+Once these two fields are filled, you can run the fact checking pipeline and your results will be ready to view within a moment. 
+
+![FactSearch Input Panel](https://github.com/hmackenzie21/FactSearch/blob/working/images/input_panel.png)
