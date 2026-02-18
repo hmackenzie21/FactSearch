@@ -72,7 +72,6 @@ This system implements a novel fact-checking pipeline with self-hosted search an
 
 This project was developed at the University of Liverpool, and I would like to thank Dr. Meng Fang for his invaluable support and contributions to the project. You can find more of his work here: https://mengfn.github.io
 
-![Liver Bird](images/liver_bird.jpg)
 
 
 **Reference:**
