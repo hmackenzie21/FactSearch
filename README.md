@@ -2,6 +2,8 @@
 
 **Images Here**
 
+Link to FactSearch Paper
+
 ## Overview
 
 FactSearch is an AI pipeline for verifying the factuality of LLM outputs. The pipeline consists of a four-step verification process:
@@ -20,15 +22,22 @@ The pipeline outputs the following information:
 * Source Links retrieved via SearXNG - some examples of commonly occuring sources are: Wikipedia, online newspaper articles, independent media publications, government/public-sector webpages (e.g. NHS pages for healthcare-related information), scholarly articles, and technical documentation. The nature of the sources used will vary depending on the information which the user inputs to the pipeline. 
 * TXT/JSON exports of all the above (optional)
 
-FactSearch was developed at the University of Liverpool by Harry Mackenzie and Dr. Meng Fang. For more information, see our paper: ...
-
 ## AI Safety Disclaimer
 
 FactSearch is a research project aimed at improving AI transparency and safety for decision-making scenarios, though it is important to acknowledge that it can make incorrect assumptions and fail to flag unfactual material. **Please do your due diligence in thoroughly checking LLM outputs, especially when this information is influencing important decisions.** FactSearch is intended only as a support tool and ultimately is not as a substitute for human intuition and expertise. 
 
+## FactSearch Demo
+
+**Insert short demo vid here**
+
+
 ## How to use FactSearch
 
-Users can interact with FactSearch either via the command line, or through the web-based GUI included in this repositary. 
+Users can choose between classes of language model when initialising FactSearch - both have inherent advantages and disadvantages:
+
+1. OpenAI Models: takes up no extra disk space as all NLP tasks are performed server side using OpenAI's black-box models. Incurs per-query costs and subject to OpenAI's non-transparent privacy policy.
+
+2. Open Source Language Models: free to use and completely locally-hosted meaning user data is not passed to any third-parties. Requires disk space to store model weights. 
 
 ### Instillation & Quick-Start
 
