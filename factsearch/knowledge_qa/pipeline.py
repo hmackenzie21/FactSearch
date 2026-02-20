@@ -37,7 +37,11 @@ class knowledge_qa_pipeline(pipeline):
             ]
             for response in responses
         ]
-        return await self.chat.async_run(messages_list, List)
+        results = await self.chat.async_run(messages_list, List)
+        print(f"DEBUG: claim extraction returned: {results}")
+        if None in results:
+            print(f"WARNING: Some claim extractions failed")
+        return results
     
     async def _query_generation(self, claims):
         if claims == None:

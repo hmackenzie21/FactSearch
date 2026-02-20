@@ -43,7 +43,7 @@ Users can choose between classes of language model when initialising FactSearch 
 
 ### FactSearch GUI
 
-Upon load, users will be prompted to select an AI model which will be used for reasoning tasks within the verification pipeline. There is a choice of OpenAI models (which require an API key) or the open-source Ollama model. 
+Upon load, users will be prompted to select an AI model which will be used for NLP tasks within the pipeline. 
 
 The OpenAI models that FactSearch currently supports are:
 

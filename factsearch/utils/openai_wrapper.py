@@ -24,7 +24,7 @@ class OpenAIChat():
     def __init__(
             self,
             model_name='gpt-5',
-            max_completion_tokens=2500,
+            max_tokens=2500,
             temperature=0,
             top_p=1,
             request_timeout=120,
@@ -42,7 +42,7 @@ class OpenAIChat():
 
         self.config = {
             'model_name': model_name,
-            'max_completion_tokens': max_completion_tokens,
+            'max_tokens': max_tokens,
             'temperature': temperature,
             'top_p': top_p,
             'request_timeout': request_timeout,
@@ -110,17 +110,29 @@ class OpenAIChat():
             List of responses from OpenAI API.
         """
         async def _request_with_retry(messages, retry=3):
+            print(f"=== ENTERED _request_with_retry ===")
             for _ in range(retry):
                 try:
-                    response = await openai.ChatCompletion.acreate(
-                        model=self.config['model_name'],
-                        messages=messages,
-                        max_completion_tokens=self.config['max_completion_tokens'],
-                        temperature=self.config['temperature'],
-                        top_p=self.config['top_p'],
-                        request_timeout=self.config['request_timeout'],
-                    )
+                    print(f"=== About to call OpenAI API ===")
+                    request_params = {
+                        'model': self.config['model_name'],
+                        'messages': messages,
+                        'temperature': self.config['temperature'],
+                        'top_p': self.config['top_p'],
+                        'request_timeout': self.config['request_timeout'],
+                    }
+                                
+                    # GPT-5+ uses max_completion_tokens, older models use max_tokens
+                    if self.config['model_name'].startswith('gpt-5') or self.config['model_name'].startswith('o1'):
+                        request_params['max_completion_tokens'] = self.config['max_tokens']
+                    else:
+                        request_params['max_tokens'] = self.config['max_tokens']
+                                
+                    response = await openai.ChatCompletion.acreate(**request_params)
+                    print(f"DEBUG: Raw API response: {response}") 
+                    print(f"DEBUG: Content: {response['choices'][0]['message']['content']}")
                     return response
+
                 except openai.error.RateLimitError:
                     print('Rate limit error, waiting for 40 second...')
                     await asyncio.sleep(40)
