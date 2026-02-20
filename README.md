@@ -75,6 +75,8 @@ Search engine configuration and effects of search engine blocks on the system, b
 OpenAI model selection + thoughts on relative model performance (mention temperature needing to be set to 1)
 Additional NLP model integration (OLlama probably)
 
+### Known Issues
+Limitations due to API rate limiting (search engine blocking) - don't launch too many queries in a short space of time. Longer responses take a long time due to the nessecity of slowing down search engine requests. 
 
 ## Credits
 
