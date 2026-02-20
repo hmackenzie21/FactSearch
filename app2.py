@@ -225,21 +225,23 @@ if api_key:
     import os
     os.environ['OPENAI_API_KEY'] = api_key
 
-model_options = ["gpt-4o", "gpt-5", "gpt-5-mini", "gpt-5.2", "qwen3:8b"]
+model_options = ["gpt-4o", "gpt-5", "gpt-5-mini", "gpt-5.2", "qwen3:1.7b", "qwen3:8b"]
 selected_model = st.sidebar.selectbox("Select Foundation Model:", model_options, index=0)
 
-if st.sidebar.button("Initialize FactSearch", type="primary", disabled=not api_key):
+is_local_model = selected_model.startswith("qwen")
+can_initialize = bool(api_key) or is_local_model
+
+if st.sidebar.button("Initialize FactSearch", type="primary", disabled=not can_initialize):
     if api_key:
-        st.session_state.factool_instance = initialize_factool(selected_model)
-    else:
-        st.sidebar.error("Please enter your OpenAI API key first")
+        os.environ['OPENAI_API_KEY'] = api_key
+    st.session_state.factool_instance = initialize_factool(selected_model)
 
 if st.session_state.factool_instance:
     st.sidebar.success("FactSearch Ready")
-elif api_key:
+elif api_key or is_local_model:
     st.sidebar.info("Click 'Initialise FactSearch' to get started")
 else:
-    st.sidebar.warning("Enter OpenAI API Key to begin")
+    st.sidebar.warning('Please enter an OpenAI key or select a local model')
 
 # main window
 if st.session_state.factool_instance:

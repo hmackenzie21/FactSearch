@@ -24,19 +24,43 @@ class OllamaChat():
     def _boolean_fix(self, output):
         """Convert JSON boolean strings to Python booleans"""
         return output.replace("true", "True").replace("false", "False")
+    
+    def _strip_thinking(self, output: str) -> str:
+        import re 
+        return re.sub(r'<think>.*?</think>', '', output, flags=re.DOTALL).strip()
 
     def _type_check(self, output, expected_type):
-        """Parse and validate output matches expected type (list or dict)"""
         try:
             output_eval = ast.literal_eval(output)
             if not isinstance(output_eval, expected_type):
                 return None
             return output_eval
         except:
+            # Fallback: try to extract just the list/dict portion
+            try:
+                if expected_type == list:
+                    start, end = output.find('['), output.rfind(']')
+                else:
+                    start, end = output.find('{'), output.rfind('}')
+                if start != -1 and end != -1 and start < end:
+                    output_eval = ast.literal_eval(output[start:end+1])
+                    if isinstance(output_eval, expected_type):
+                        return output_eval
+            except:
+                pass
             return None
 
     async def _single_request(self, messages, retry=3):
         """Make a single request to Ollama API with retry logic"""
+        modified_messages = []
+        for msg in messages:
+            if msg['role'] == 'system':
+                modified_messages.append({
+                    'role': 'system',
+                    'content': msg['content'] + '\n/no_think'
+                })
+            else:
+                modified_messages.append(msg)
         payload = {
             'model': self.config['model_name'],
             'messages': messages,
@@ -102,7 +126,7 @@ class OllamaChat():
             )
 
             preds = [
-                self._type_check(self._boolean_fix(prediction), expected_type) 
+                self._type_check(self._boolean_fix(self._strip_thinking(prediction)), expected_type) 
                 if prediction is not None else None 
                 for prediction in predictions
             ]
