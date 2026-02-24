@@ -7,6 +7,12 @@ FactSearch is an AI pipeline for verifying the factuality of LLM outputs. Provid
 
 ### Quick Setup
 
+Preresiquites:
+
+- Python 3.10 or higher
+- Docker Desktop
+- Ollama (optional - if you want to run FactSearch locally)
+
 1. Clone the repository:
 ```bash
 git clone https://github.com/hmackenzie21/FactSearch
