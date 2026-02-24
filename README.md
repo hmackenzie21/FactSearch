@@ -39,7 +39,38 @@ Users can choose between classes of language model when initialising FactSearch 
 
 2. Open Source Language Models: free to use and completely locally-hosted meaning user data is not passed to any third-parties. Requires disk space to store model weights. 
 
-### Instillation & Quick-Start
+### Quick Setup
+
+1. Clone the repository:
+```bash
+git clone https://github.com/hmackenzie21/FactSearch
+cd factsearch
+```
+
+2. Run the setup script:
+```bash
+python setup.py
+```
+
+3. Activate the virtual environment:
+
+**Mac/Linux:**
+```bash
+source .venv/bin/activate
+```
+
+**Windows:**
+```bash
+.venv\Scripts\activate
+```
+
+4. Start the application:
+```bash
+streamlit run app.py
+```
+
+5. Open your browser to `http://localhost:8501`
+
 
 ### FactSearch GUI
 
