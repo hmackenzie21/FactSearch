@@ -168,6 +168,15 @@ def display_claim_evidence(claim, index):
 def display_results(results):
     if not results:
         return
+    
+    st.subheader("Query & Response")
+    col1, col2 = st.columns(2)
+    with col1:
+        st.markdown("**Original Question:**")
+        st.info(results['prompt'])
+    with col2:
+        st.markdown("**Response Being Checked:**")
+        st.info(results['response'])
 
     st.subheader("Overall Results")
     col1, col2 = st.columns(2)
@@ -180,15 +189,6 @@ def display_results(results):
         )
     with col2:
         st.metric("Average Claim Factuality", f"{results['avg_claim_factuality']:.2%}")
-
-    st.subheader("Query & Response")
-    col1, col2 = st.columns(2)
-    with col1:
-        st.markdown("**Original Question:**")
-        st.info(results['prompt'])
-    with col2:
-        st.markdown("**Response Being Checked:**")
-        st.info(results['response'])
 
     st.subheader("Detailed Analysis")
     if results['reasoning']:
